@@ -12,9 +12,14 @@ action "Filter master" {
   args = "not branch master"
 }
 
+action "Some action that changes files" {
+  uses = "..."
+  args = "..."
+}
+
 action "Auto-commit" {
   uses = "docker://cdssnc/auto-commit-github-action"
-  needs = ["Filter master"]
+  needs = ["Some action that changes files"]
   args = "This is an auto-commit"
   secrets = ["GITHUB_TOKEN"]
 }
