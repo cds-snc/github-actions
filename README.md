@@ -1,4 +1,5 @@
 # CDS/SNC GitHub Actions
+[![Phase](https://img.shields.io/badge/Phase-Beta-22a7f0.svg)](https://digital.canada.ca/products/)
 
 ```
 With GitHub Actions you can automate your workflow from idea to production.
