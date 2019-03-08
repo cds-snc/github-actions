@@ -14,7 +14,7 @@ done
 
 if [ ${#data[@]} -eq 0 ]; then
     echo ""
-    echo "\U1F984\n No vulnerabilities found!"
+    echo "No vulnerabilities found!"
     exit 0
 else
     echo ""
