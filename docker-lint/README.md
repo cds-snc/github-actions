@@ -1,6 +1,6 @@
 # Docker lint GitHub Action
 
-The purpose of this GitHub action is to lint your docker files. It uses [https://github.com/hadolint/hadolint](https://github.com/hadolint/hadolint) to lint all files in your `Dockerfiles` which are based on [Docker best practices](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices). It allows you to pass the specific `hadolint` overrides in the `args` field:
+The purpose of this GitHub action is to lint your Docker files. It uses [https://github.com/hadolint/hadolint](https://github.com/hadolint/hadolint) to lint all files in your `Dockerfiles` which are based on [Docker best practices](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices). It allows you to pass the specific `hadolint` overrides in the `args` field:
 
 ```
 --ignore DL3007 --trusted-registry my-company.com:500
