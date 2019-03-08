@@ -20,3 +20,20 @@ action "Linter" {
 }
 
 ```
+
+
+The resulting output will look something like this when it fails:
+
+```
+Searching for Dockerfiles ...
+-----------------------------
+Processing /github/workspace/auto-commit/Dockerfile
+Processing /github/workspace/touched/Dockerfile
+Processing /github/workspace/google-analytics-anonymize-ip/Dockerfile
+
+Found the following issues
+--------------------------
+/github/workspace/google-analytics-anonymize-ip/Dockerfile:13 DL3020 Use COPY instead of ADD for files and folders
+
+### FAILED Lint docker files #2 15:26:20Z (10.533s)
+```
