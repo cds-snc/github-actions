@@ -1,8 +1,8 @@
 workflow "Lint dockerfiles" {
   on = "push"
-  resolves = ["docker://cdssnc/docker-lint"]
+  resolves = ["Lint docker files"]
 }
 
-action "docker://cdssnc/docker-lint" {
+action "Lint docker files" {
   uses = "docker://cdssnc/docker-lint"
 }
