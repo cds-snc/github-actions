@@ -1,4 +1,4 @@
-FROM alpine/git
+FROM alpine/git:1.0.7
 
 LABEL "name"="auto-commit"
 LABEL "maintainer"="Max Neuvians <max.neuvians@cds-snc.ca>"

@@ -1,5 +1,5 @@
-FROM alpine:latest as builder
-RUN apk add -u crystal shards libc-dev
+FROM alpine:3.9 as builder
+RUN apk add --no-cache crystal=0.27.2-r0 shards=0.8.1-r0 libc-dev=0.7.1-r0 && rm -rf /var/cache/apk/*
 WORKDIR /src
 COPY . .
 RUN crystal build --release --static src/run.cr -o /src/run
