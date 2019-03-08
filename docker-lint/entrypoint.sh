@@ -21,5 +21,7 @@ else
     echo "Found the following issues:"
     echo "---------------------------"
     printf '%s\n' "${data[@]}"
+    echo ""
+    echo "Look here for rules explanations: https://github.com/hadolint/hadolint#rules"
     exit 1
 fi
