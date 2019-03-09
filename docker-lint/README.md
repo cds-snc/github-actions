@@ -15,7 +15,7 @@ workflow "Lint all Dockerfiles" {
 }
 
 action "Linter" {
-  uses = "docker://cdssnc/docker-lint"
+  uses = "docker://cdssnc/docker-lint-github-action"
   args = "--ignore DL3007"
 }
 
