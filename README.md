@@ -18,7 +18,7 @@ The purpose of this repository is to track all the GitHub actions CDS creates fo
 | docker-lint                   | Automatically runs [hadolint](https://github.com/hadolint/hadolint) on all the `Dockerfiles` in your repository.     | `push`              | `cdssnc/docker-lint-github-action`                   | 26 MB   |
 | google-analytics-anonymize-ip | Checks a deployment if it is uses IP anonymization when using Google Analytics                                       | `deployment_status` | `cdssnc/google-analytics-anonymize-ip-github-action` | 1.44 GB |
 | seekret                       | Checks if files contain secrets you do not want to expose                                                            | `push`              | `cdssnc/seekret-github-action`                       | 59.7 MB |
-| tf-lint                       | Automatically runs [hadolint](https://github.com/hadolint/hadolint) on all the Terraform (`.tf`) in your repository. | `push`              | `cdssnc/tf-lint-github-action`                       | 27 MB   |
+| tf-lint                       | Automatically runs [tflint](https://github.com/wata727/tflint) on all the Terraform (`.tf`) in your repository. | `push`              | `cdssnc/tf-lint-github-action`                       | 27 MB   |
 | touched                       | Checks if file matching a pattern have been touched as part of the push                                              | `push`              | `cdssnc/auto-commit-github-action`                   | 1.88 MB |
 
 ### Questions?
