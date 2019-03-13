@@ -1,4 +1,4 @@
-# Docker lint GitHub Action
+# Terrafrom lint GitHub Action
 
 The purpose of this GitHub action is to lint your Terraform files. It uses [tflint](https://github.com/wata727/tflint) to lint all your `.tf` files. It allows you to pass the specific `tflint` overrides in the `args` field:
 
