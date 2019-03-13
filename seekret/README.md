@@ -35,8 +35,6 @@ Found the following secrets:
 /github/workspace/server.key
 	1: [certs.rsa]   match: .*-----BEGIN RSA PRIVATE KEY-----.* false
 
-
-root@64911e833d22:/# exit
 ```
 
 It uses a set of rule files that can be found here:
