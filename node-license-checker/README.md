@@ -49,5 +49,8 @@ Package "@cdssnc/bad-license@0.0.2" is licensed under "UNKNOWN" which is not per
 The license checker found issues with the flags your provided. See above.
 ```
 
+A list of liceses to use can be found here:
+[https://github.com/canada-ca/open-source-logiciel-libre/blob/master/en/guides/using-open-source-software.md#annex-a](https://github.com/canada-ca/open-source-logiciel-libre/blob/master/en/guides/using-open-source-software.md#annex-a)
+
 For more information check here:
 [https://github.com/davglass/license-checker](https://github.com/davglass/license-checker)
