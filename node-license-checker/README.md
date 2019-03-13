@@ -1,8 +1,9 @@
 # Node license checker GitHub Action
 
+Thank you to [@calvinrodo](https://github.com/calvinrodo) for pointing us in the right direction.
+
 The purpose of this GitHub action is to scan the licenses of your node dependencies to check for incompatibilities. It uses [license-checker](https://github.com/davglass/license-checker) to scan through your dependencies and flag potential issues. It allows you to pass the specific arguments in the `args` field. If you do not define a `--failOn` it will always pass:
 
-```
 * `--production` only show production dependencies.
 * `--development` only show development dependencies.
 * `--start [path of the initial json to look for]`
@@ -22,7 +23,6 @@ The purpose of this GitHub action is to scan the licenses of your node dependenc
 * `--excludePackages [list]` restrict output to the packages (package@version) not in the semicolon-seperated list
 * `--excludePrivatePackages` restrict output to not include any package marked as private
 * `--direct look for direct dependencies only`
-```
 
 Use the GitHub action in the following way:
 
@@ -48,8 +48,6 @@ Package "@cdssnc/bad-license@0.0.2" is licensed under "UNKNOWN" which is not per
 
 The license checker found issues with the flags your provided. See above.
 ```
-
-Thank you to @calvinrodo for pointing us in the right direction.
 
 For more information check here:
 [https://github.com/davglass/license-checker](https://github.com/davglass/license-checker)
