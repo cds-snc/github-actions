@@ -12,7 +12,7 @@ LABEL "com.github.actions.color"="orange"
 RUN apk add --no-cache bash=4.4.19-r1
 RUN rm -rf /var/cache/apk/*
 
-RUN npm install -g license-checker
+RUN npm install -g license-checker@25.0.1
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
