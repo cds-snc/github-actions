@@ -1,7 +1,5 @@
 # Node license checker GitHub Action
 
-Thank you to [@calvinrodo](https://github.com/calvinrodo) for pointing us in the right direction.
-
 The purpose of this GitHub action is to scan the licenses of your node dependencies to check for incompatibilities. It uses [license-checker](https://github.com/davglass/license-checker) to scan through your dependencies and flag potential issues. It allows you to pass the specific arguments in the `args` field. If you do not define a `--failOn` it will always pass:
 
 * `--production` only show production dependencies.
@@ -54,3 +52,5 @@ A list of liceses to use can be found here:
 
 For more information check here:
 [https://github.com/davglass/license-checker](https://github.com/davglass/license-checker)
+
+Thank you to [@calvinrodo](https://github.com/calvinrodo) for pointing us in the right direction.

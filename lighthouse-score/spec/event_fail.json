@@ -1,0 +1,35 @@
+{
+    "deployment_status": {
+      "url": "https://api.github.com/repos/cds-snc/bundle-size-tracker-demo-app/deployments/124142161/statuses/181455715",
+      "id": 181455715,
+      "node_id": "MDE2OkRlcGxveW1lbnRTdGF0dXMxODE0NTU3MTU=",
+      "state": "fail",
+      "creator": {
+        "login": "maxneuvians",
+        "id": 867334,
+        "node_id": "MDQ6VXNlcjg2NzMzNA==",
+        "avatar_url": "https://avatars3.githubusercontent.com/u/867334?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/maxneuvians",
+        "html_url": "https://github.com/maxneuvians",
+        "followers_url": "https://api.github.com/users/maxneuvians/followers",
+        "following_url": "https://api.github.com/users/maxneuvians/following{/other_user}",
+        "gists_url": "https://api.github.com/users/maxneuvians/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/maxneuvians/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/maxneuvians/subscriptions",
+        "organizations_url": "https://api.github.com/users/maxneuvians/orgs",
+        "repos_url": "https://api.github.com/users/maxneuvians/repos",
+        "events_url": "https://api.github.com/users/maxneuvians/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/maxneuvians/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "description": "Heroku",
+      "environment": "bundle-size-tracker-demo-pr-21",
+      "target_url": "https://dashboard.heroku.com/apps/bundle-size-tracker-demo-pr-21/activity/builds/abedc8a2-e593-4323-9ed1-0a6333c03711",
+      "created_at": "2019-01-18T19:40:07Z",
+      "updated_at": "2019-01-18T19:40:07Z",
+      "deployment_url": "https://api.github.com/repos/cds-snc/bundle-size-tracker-demo-app/deployments/124142161",
+      "repository_url": "https://api.github.com/repos/cds-snc/bundle-size-tracker-demo-app"
+    }
+  }
