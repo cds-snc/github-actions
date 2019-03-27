@@ -17,3 +17,5 @@ RUN ln -s /opt/s3cmd/s3cmd /usr/bin/s3cmd
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["sh", "/entrypoint.sh"]
