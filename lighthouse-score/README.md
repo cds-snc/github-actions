@@ -1,6 +1,6 @@
 # LighthouseScore GitHub Action
 
-The purpose of this GitHub action run lighthouse on URL specified in a `deployment_status` event. This is intended to be used with the [lighthouse cloud function](https://github.com/cds-snc/lighthouse-cloud). Therefore it requires the following `ENV` variables:
+The purpose of this GitHub action is to run lighthouse on URL specified in a `deployment_status` event. This is intended to be used with the [lighthouse cloud function](https://github.com/cds-snc/lighthouse-cloud). Therefore it requires the following `ENV` variables:
 
 | NAME              | PURPOSE                                               |
 | ----------------- | ----------------------------------------------------- |
