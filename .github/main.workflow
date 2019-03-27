@@ -7,14 +7,21 @@ action "Lint docker files" {
   uses = "docker://cdssnc/docker-lint"
 }
 
-workflow "Branch is failing" {
-  on = "check_suite"
-  resolves = ["Tests are failing"]
+workflow "Backup to S3" {
+  on = "push"
+  resolves = ["Uploads your workspace to S3", "Branch is master"]
 }
 
-action "Tests are failing" {
-  uses = "docker://cdssnc/elmo-fire-github-action"
+action "Branch is master" {
+  uses = "actions/bin/filter@d820d56839906464fb7a57d1b4e1741cf5183efa"
+  args = "branch master"
+}
+
+action "Uploads your workspace to S3" {
+  uses = "./diefenbunker"
+  needs = ["Branch is master"]
+  secrets = ["AWS_KEY", "AWS_SECRET"]
   env = {
-    SLACK_WEBHOOK_URL = "https://hooks.slack.com/services/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"
+    S3_DESTINATION = "s3://cds-github/diefenbunker/"
   }
 }
