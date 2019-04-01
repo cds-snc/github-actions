@@ -40,7 +40,7 @@ action "Is master" {
 }
 
 action "Touched Action" {
-  uses = "./touched"
+  uses = "docker://cdssnc/touched-github-action:latest"
   needs = ["Docker Registry"]
   args = "touched/**"
 }
@@ -54,7 +54,7 @@ action "Docker Registry" {
 action "Build touched" {
   uses = "actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108"
   needs = ["Touched Action"]
-  args = "build -t cdssnc/touched-github-action touched/."
+  args = "build -t cdssnc/touched-github-action ./touched"
 }
 
 action "Push touched" {
