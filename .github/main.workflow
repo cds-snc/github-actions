@@ -29,8 +29,8 @@ action "Uploads your workspace to S3" {
 workflow "Docker build" {
   on = "push"
   resolves = [
-    "Docker Registry",
     "Push touched",
+    "Push auto-commit",
   ]
 }
 
@@ -61,4 +61,22 @@ action "Push touched" {
   uses = "actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108"
   needs = ["Build touched"]
   args = "push cdssnc/touched-github-action"
+}
+
+action "Auto-commit Action" {
+  uses = "docker://cdssnc/touched-github-action"
+  needs = ["Docker Registry"]
+  args = "auto-commit/**"
+}
+
+action "Build auto-commit" {
+  uses = "actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108"
+  needs = ["Auto-commit Action"]
+  args = "build -t cdssnc/auto-commit-github-action ./auto-commit"
+}
+
+action "Push auto-commit" {
+  uses = "actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108"
+  needs = ["Build auto-commit"]
+  args = "push cdssnc/auto-commit-github-action"
 }
