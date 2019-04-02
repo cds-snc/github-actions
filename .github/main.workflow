@@ -386,3 +386,40 @@ action "push tf-lint" {
   args = "push cdssnc/tf-lint-github-action"
 }
 
+workflow "gh-pages docker build" {
+  on = "push"
+  resolves = [
+    "push gh-pages"
+  ]
+}
+
+action "gh-pages is master" {
+  uses = "actions/bin/filter@3c98a2679187369a2116d4f311568596d3725740"
+  args = "branch master"
+}
+
+action "gh-pages docker registry" {
+  uses = "actions/docker/login@8cdf801b322af5f369e00d85e9cf3a7122f49108"
+  needs = ["gh-pages is master"]
+  secrets = ["DOCKER_USERNAME", "DOCKER_PASSWORD"]
+}
+
+action "gh-pages action" {
+  uses = "docker://cdssnc/touched-github-action:latest"
+  needs = ["gh-pages docker registry"]
+  args = "gh-pages/**"
+}
+
+action "build gh-pages" {
+  uses = "actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108"
+  needs = ["gh-pages action"]
+  args = "build -t cdssnc/gh-pages-github-action ./gh-pages"
+}
+
+action "push gh-pages" {
+  uses = "actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108"
+  needs = ["build gh-pages"]
+  args = "push cdssnc/gh-pages-github-action"
+}
+
+
