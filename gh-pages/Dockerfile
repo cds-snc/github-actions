@@ -1,4 +1,4 @@
-FROM alpine/git::1.0.7
+FROM alpine/git:1.0.7
 
 LABEL "name"="GH Pages"
 LABEL "maintainer"="Max Neuvians <max.neuvians@cds-snc.ca>"
