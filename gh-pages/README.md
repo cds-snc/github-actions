@@ -1,6 +1,6 @@
 # GH-Page
 
-The purpose of this GitHub action is to copy a directory to GitHub pages. This is a fork of [https://github.com/maxheld83/ghpages](https://github.com/maxheld83/ghpages). We would use the original but it requires a `Personal Access Token`, which means that if somebody slipped a malicious docker image in, they could copy out our credentials. As a result we need to keep our own version :(.
+The purpose of this GitHub action is to copy a directory to GitHub pages. This is a fork of [https://github.com/maxheld83/ghpages](https://github.com/maxheld83/ghpages). We would use the original but it requires a `Personal Access Token`, which means that if somebody slipped a malicious docker image in, they could copy out our credentials. As a result we need to keep our own version :( .
 
 
 
