@@ -81,7 +81,7 @@ action "auto-commit docker registry" {
 }
 
 action "auto-commit action" {
-  uses = "docker://cdssnc/auto-commit-github-action:latest"
+  uses = "docker://cdssnc/touched-github-action:latest"
   needs = ["auto-commit docker registry"]
   args = "auto-commit/**"
 }
@@ -117,7 +117,7 @@ action "diefenbunker docker registry" {
 }
 
 action "diefenbunker action" {
-  uses = "docker://cdssnc/diefenbunker-github-action:latest"
+  uses = "docker://cdssnc/touched-github-action:latest"
   needs = ["diefenbunker docker registry"]
   args = "diefenbunker/**"
 }
@@ -153,7 +153,7 @@ action "docker-lint docker registry" {
 }
 
 action "docker-lint action" {
-  uses = "docker://cdssnc/docker-lint-github-action:latest"
+  uses = "docker://cdssnc/touched-github-action:latest"
   needs = ["docker-lint docker registry"]
   args = "docker-lint/**"
 }
@@ -189,7 +189,7 @@ action "elmo-fire docker registry" {
 }
 
 action "elmo-fire action" {
-  uses = "docker://cdssnc/elmo-fire-github-action:latest"
+  uses = "docker://cdssnc/touched-github-action:latest"
   needs = ["elmo-fire docker registry"]
   args = "elmo-fire/**"
 }
@@ -225,7 +225,7 @@ action "google-analytics-anonymize-ip docker registry" {
 }
 
 action "google-analytics-anonymize-ip action" {
-  uses = "docker://cdssnc/google-analytics-anonymize-ip-github-action:latest"
+  uses = "docker://cdssnc/touched-github-action:latest"
   needs = ["google-analytics-anonymize-ip docker registry"]
   args = "google-analytics-anonymize-ip/**"
 }
@@ -261,7 +261,7 @@ action "lighthouse-score docker registry" {
 }
 
 action "lighthouse-score action" {
-  uses = "docker://cdssnc/lighthouse-score-github-action:latest"
+  uses = "docker://cdssnc/touched-github-action:latest"
   needs = ["lighthouse-score docker registry"]
   args = "lighthouse-score/**"
 }
@@ -297,7 +297,7 @@ action "node-license-checker docker registry" {
 }
 
 action "node-license-checker action" {
-  uses = "docker://cdssnc/node-license-checker-github-action:latest"
+  uses = "docker://cdssnc/touched-github-action:latest"
   needs = ["node-license-checker docker registry"]
   args = "node-license-checker/**"
 }
@@ -333,7 +333,7 @@ action "seekret docker registry" {
 }
 
 action "seekret action" {
-  uses = "docker://cdssnc/seekret-github-action:latest"
+  uses = "docker://cdssnc/touched-github-action:latest"
   needs = ["seekret docker registry"]
   args = "seekret/**"
 }
@@ -369,7 +369,7 @@ action "tf-lint docker registry" {
 }
 
 action "tf-lint action" {
-  uses = "docker://cdssnc/tf-lint-github-action:latest"
+  uses = "docker://cdssnc/touched-github-action:latest"
   needs = ["tf-lint docker registry"]
   args = "tf-lint/**"
 }
