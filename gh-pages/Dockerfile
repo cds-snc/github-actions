@@ -1,4 +1,4 @@
-FROM alpine/git:latest
+FROM alpine/git::1.0.7
 
 LABEL "name"="GH Pages"
 LABEL "maintainer"="Max Neuvians <max.neuvians@cds-snc.ca>"
@@ -9,5 +9,5 @@ LABEL "com.github.actions.description"="Deploy static assets to GitHub Pages."
 LABEL "com.github.actions.icon"="upload-cloud"
 LABEL "com.github.actions.color"="blue"
 
-ADD entrypoint.sh /entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
