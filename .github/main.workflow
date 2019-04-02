@@ -407,7 +407,7 @@ action "gh-pages docker registry" {
 action "gh-pages action" {
   uses = "docker://cdssnc/touched-github-action:latest"
   needs = ["gh-pages docker registry"]
-  args = "gh-pages/**"
+  args = "./gh-pages/**"
 }
 
 action "build gh-pages" {
