@@ -32,7 +32,7 @@ action "lighthouse" {
   uses = "docker://cdssnc/lighthouse-score-github-action"
   env = {
     LIGHTHOUSE_URL = "https://us-central1 ... /scanURL",
-    LIGHTHOUSE_SCECRET = "foo",
+    LIGHTHOUSE_SECRET = "foo",
     LIGHTHOUSE_SCORES = "[50, 50, 50, 50, 50]"
   }
 
