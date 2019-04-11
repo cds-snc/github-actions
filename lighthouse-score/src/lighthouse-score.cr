@@ -59,6 +59,8 @@ module LighthouseScore
             end
           end
 
+          puts "Required scores are #{baseline}."
+
 					body = JSON.parse(resp.body)
 					
 					keys = ["performance", "accessibility", "best-practices", "seo", "pwa"]
