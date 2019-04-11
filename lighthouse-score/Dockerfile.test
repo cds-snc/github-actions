@@ -15,14 +15,13 @@ LABEL "com.github.actions.description"="Runs a lighthouse check on a deployment 
 LABEL "com.github.actions.icon"="fire"
 LABEL "com.github.actions.color"="orange"
 
-ENV GITHUB_EVENT_NAME deployment_status
+RUN apk add --no-cache openssl-dev=1.1.1b-r1 && rm -rf /var/cache/apk/*
 
-ENV LIGHTHOUSE_URL $LIGHTHOUSE_URL
-ENV LIGHTHOUSE_SECRET $LIGHTHOUSE_SECRET
-ENV LIGHTHOUSE_SCORES $LIGHTHOUSE_SCORES
+ENV GITHUB_EVENT_NAME deployment_status
 
 COPY ./spec/event_success.json /\github/workflow/event.json
 
 WORKDIR /app
 COPY --from=builder /src/run /app/run
-# ENTRYPOINT ["/app/run"]
+
+ENTRYPOINT ["/app/run"]

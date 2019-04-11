@@ -38,13 +38,19 @@ module LighthouseScore
       end
 
 			if event["deployment"]["payload"]["web_url"]?
-				
-				url = "#{ENV["LIGHTHOUSE_URL"]}?url=#{event["deployment"]["payload"]["web_url"]}&secret=#{ENV["LIGHTHOUSE_SECRET"]}"
+        
+        target = event["deployment"]["payload"]["web_url"]
+
+        puts "Running lighthouse on #{target}..."
+
+				url = "#{ENV["LIGHTHOUSE_URL"]}?url=#{target}&secret=#{ENV["LIGHTHOUSE_SECRET"]}"
 				
 				resp = HTTP::Client.post(url)
 				
         if resp.success?
           baseline = [0, 0, 0, 0, 0]
+
+          puts "Interpreting scores ..."
 
           if ENV["LIGHTHOUSE_SCORES"]?
             scores = Array(Int32).from_json(ENV["LIGHTHOUSE_SCORES"])
@@ -69,7 +75,8 @@ module LighthouseScore
 					if fails.size > 0 
 						puts fails
 						return 1
-					else
+          else
+            puts "All scores passed!"
 						return 0
 					end
         else
