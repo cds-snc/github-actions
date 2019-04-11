@@ -50,8 +50,6 @@ module LighthouseScore
         if resp.success?
           baseline = [0, 0, 0, 0, 0]
 
-          puts "Interpreting scores ..."
-
           if ENV["LIGHTHOUSE_SCORES"]?
             scores = Array(Int32).from_json(ENV["LIGHTHOUSE_SCORES"])
 						scores.each_with_index do |score, index|
@@ -59,23 +57,33 @@ module LighthouseScore
             end
           end
 
-          puts "Required scores are #{baseline}."
-
+          puts "Required scores are #{baseline}, received:"
+          puts "-------------------"
 					body = JSON.parse(resp.body)
 					
 					keys = ["performance", "accessibility", "best-practices", "seo", "pwa"]
 
 					fails = [] of String
 
-					keys.each_with_index do |key, index|
-						score = (body["categories"][key]["score"].as_f * 100.0).to_i
+          keys.each_with_index do |key, index|
+            case body["categories"][key]["score"]
+            when 0
+              score = 0
+            when 1
+              score = 100
+            else
+              score = (body["categories"][key]["score"].as_f * 100.0).to_i
+            end
+
+            puts "For #{key}, score was #{score}, required was #{baseline[index]}"
+
 						if score < baseline[index]
-							fails << "#{key} score was #{score}, expected #{baseline[index]}"
+							fails << "#{key}"
 						end
 					end
-	
+          puts "-------------------"
 					if fails.size > 0 
-						puts fails
+						puts "Please review: #{fails.join(", ")}"
 						return 1
           else
             puts "All scores passed!"
