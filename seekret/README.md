@@ -22,7 +22,7 @@ workflow "Scan for secrets" {
 }
 
 action "Seekret" {
-  uses = "docker://cdssnc/seekret-github-action"
+  uses = "docker://cdssnc/seekret"
 }
 
 ```
