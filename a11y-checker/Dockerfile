@@ -14,7 +14,7 @@ USER root
 RUN apt-get update
 RUN apt-get install nodejs -y --no-install-recommends
 RUN apt-get install npm -y --no-install-recommends
-RUN rm /var/lib/apt/lists/*
+RUN rm -r /var/lib/apt/lists/*
 
 RUN mkdir /app
 COPY . /app/
@@ -24,6 +24,6 @@ ENV NODE_ENV=production
 RUN npm install
 ENV PATH="${PATH}:/node_modules/.bin"
 
-USER a11y
+USER seluser
 
 CMD ["node", "/app/src/index"]
