@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "esm": "^3.2.22",
+    "puppeteer": "^1.14.0",
+    "minimist": "^1.2.0",
+    "axe-puppeteer": "1.0.0"
+  }
+}
