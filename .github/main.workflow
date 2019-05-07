@@ -428,7 +428,7 @@ workflow "a11y docker build" {
 }
 
 action "a11y install" {
-  uses = "docker://culturehq/actions-yarn:latest
+  uses = "docker://culturehq/actions-yarn:latest"
   args = "install"
 }
 
