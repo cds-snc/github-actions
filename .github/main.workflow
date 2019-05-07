@@ -5,7 +5,7 @@ workflow "a11y docker build" {
 
 action "a11y install" {
   uses = "docker://culturehq/actions-yarn:latest"
-  runs = "sh -c cd a11y-checker && yarn install"
+  runs = "[ \"sh\", \"-c\", \"cd a11y-checker && yarn install\" ]"
 }
 
 action "a11y test" {
