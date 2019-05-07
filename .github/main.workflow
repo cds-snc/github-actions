@@ -5,13 +5,13 @@ workflow "a11y docker build" {
 
 action "a11y install" {
   uses = "docker://culturehq/actions-yarn:latest"
-  args = "install --prefix ./a11y-checker"
+  args = "cd a11y-checker && install"
 }
 
 action "a11y test" {
   uses = "docker://culturehq/actions-yarn:latest"
   needs = ["a11y install"]
-  args = "test --prefix ./a11y-checker"
+  args = "cd a11y-checker && test"
 }
 
 action "a11y is master" {
