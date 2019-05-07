@@ -5,7 +5,7 @@ workflow "a11y docker build" {
 
 action "a11y install" {
   uses = "docker://culturehq/actions-yarn:latest"
-  runs = "bash -c \"cd a11y-checker && npm install\""
+  runs = "bash -c cd a11y-checker && npm install"
 }
 
 action "a11y test" {
