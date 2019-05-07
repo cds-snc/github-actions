@@ -1,8 +1,16 @@
 {
+  "scripts": {
+    "dev": "NODE_ENV=dev node src/index.js --local",
+    "test": "jest"
+  },
   "dependencies": {
     "esm": "^3.2.22",
     "puppeteer": "^1.14.0",
     "minimist": "^1.2.0",
     "axe-puppeteer": "1.0.0"
+  },
+  "devDependencies": {
+    "jest": "^24.5.0",
+    "jest-puppeteer-preset": "^4.1.0"
   }
 }
