@@ -5,16 +5,13 @@ workflow "a11y docker build" {
 
 action "a11y install" {
   uses = "docker://culturehq/actions-yarn:latest"
-  args = "install"
-  env = {
-    GITHUB_WORKSPACE = "/a11y-checker/"
-  }
+  args = "install --prefix ./a11y-checker"
 }
 
 action "a11y test" {
   uses = "docker://culturehq/actions-yarn:latest"
   needs = ["a11y install"]
-  args = "test"
+  args = "test --prefix ./a11y-checker"
 }
 
 action "a11y is master" {
