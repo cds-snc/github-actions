@@ -3,15 +3,12 @@ workflow "a11y docker build" {
   resolves = ["a11y deploy"]
 }
 
-action "a11y action" {
-  uses = "docker://culturehq/actions-yarn:latest"
-  args = "cd a11y-checker/"
-}
-
 action "a11y install" {
   uses = "docker://culturehq/actions-yarn:latest"
-  needs = "a11y action"
   args = "install"
+  env = {
+    GITHUB_WORKSPACE = "/a11y-checker/"
+  }
 }
 
 action "a11y test" {
