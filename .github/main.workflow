@@ -5,7 +5,7 @@ workflow "a11y docker build" {
 
 action "a11y action" {
   uses = "docker://culturehq/actions-yarn:latest"
-  args = "a11y-checker/"
+  args = "cd a11y-checker/"
 }
 
 action "a11y install" {
