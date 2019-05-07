@@ -428,12 +428,12 @@ workflow "a11y docker build" {
 }
 
 action "a11y install" {
-  uses = "docker://node:latest"
+  uses = "docker://culturehq/actions-yarn:latest
   args = "install"
 }
 
 action "a11y test" {
-  uses = "docker://node:latest"
+  uses = "docker://culturehq/actions-yarn:latest"
   needs = ["a11y install"]
   args = "test"
 }
@@ -451,7 +451,7 @@ action "a11y docker registry" {
 }
 
 action "a11y build" {
-  uses = "docker://node:latest"
+  uses = "docker://culturehq/actions-yarn:latest"
   needs = ["a11y docker registry"]
   args = "build -t cdssnc/a11y-checker-github-action ./a11y-checker"
 }
