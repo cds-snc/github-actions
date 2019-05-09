@@ -4,10 +4,11 @@
     "test": "jest"
   },
   "dependencies": {
+    "axe-puppeteer": "1.0.0",
+    "babel-jest": "^24.8.0",
     "esm": "^3.2.22",
-    "puppeteer": "^1.14.0",
     "minimist": "^1.2.0",
-    "axe-puppeteer": "1.0.0"
+    "puppeteer": "^1.14.0"
   },
   "devDependencies": {
     "jest": "^24.5.0"

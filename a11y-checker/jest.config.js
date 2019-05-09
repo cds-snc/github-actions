@@ -1,3 +1,4 @@
 module.exports = {
-  clearMocks: true
+  clearMocks: true,
+  transform: { "^.+\\.js$": "babel-jest" } 
 };
