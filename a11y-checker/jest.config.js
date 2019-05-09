@@ -1,4 +1,6 @@
 module.exports = {
   clearMocks: true,
-  transform: { "^.+\\.js$": "babel-jest" } 
+  setupFiles: [
+    path.join (__dirname, './__tests__/setup.js')
+  ]
 };

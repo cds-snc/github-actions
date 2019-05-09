@@ -5,7 +5,6 @@
   },
   "dependencies": {
     "axe-puppeteer": "1.0.0",
-    "babel-jest": "^24.8.0",
     "esm": "^3.2.22",
     "minimist": "^1.2.0",
     "puppeteer": "^1.14.0"
