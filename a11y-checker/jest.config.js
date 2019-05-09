@@ -1,4 +1,3 @@
 module.exports = {
-  clearMocks: true,
-  preset: "jest-puppeteer-preset"
+  clearMocks: true
 };
