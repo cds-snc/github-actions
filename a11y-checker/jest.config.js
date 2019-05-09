@@ -1,4 +1,4 @@
 module.exports = {
   clearMocks: true,
-  setupFiles: ['./__tests__/setup.js']
+  setupFiles: ['./src/__tests__/setup.js']
 };
