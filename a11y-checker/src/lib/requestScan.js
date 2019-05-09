@@ -2,7 +2,6 @@ const { AxePuppeteer } = require('axe-puppeteer');
 const puppeteer = require('puppeteer');
 
 export const requestScan = async (url, useGlobalPuppeteer = false) => {
-
   try {
     const browser = !useGlobalPuppeteer
       ? await puppeteer.launch({

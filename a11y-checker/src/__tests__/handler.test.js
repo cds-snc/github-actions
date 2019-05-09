@@ -7,7 +7,7 @@ jest.mock("../lib/requestScan", () => ({
     if (url === "fail_url") {
       return false;
     } else {
-      return true;
+      return 0;
     }
   })
 }));
@@ -21,7 +21,7 @@ describe("handle", () => {
     expect(result).toEqual(true);
   });
 
-  it("returns a passed message if the check fails", async () => {
+  it("returns a failed message if the check fails", async () => {
     const result = await handle("fail_url");
     expect(result).toEqual(false);
   });
