@@ -9,7 +9,7 @@ action "a11y install" {
 }
 
 action "a11y test" {
-  uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
+  uses = "buildkite/puppeteer:v1.11.0"
   needs = ["a11y install"]
   runs = ["sh", "-c", "cd a11y-checker && npm test"]
 }
