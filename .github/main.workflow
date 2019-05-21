@@ -461,3 +461,44 @@ action "a11y deploy" {
   needs = ["a11y build"]
   args = "push cdssnc/a11y-checker-github-action"
 }
+
+ workflow " distributed a11y docker build" {
+  on = "push"
+  resolves = ["distributed a11y deploy"]
+}
+
+ action "distributed a11y install" {
+  uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
+  runs = ["sh", "-c", "cd a11y-multiple-page-checker && npm install"]
+}
+
+ action "distributed a11y test" {
+  uses = "docker://buildkite/puppeteer:v1.11.0"
+  needs = ["distributed a11y install"]
+  runs = ["sh", "-c", "cd a11y-multiple-page-checker && npm test"]
+}
+
+ action "distributed a11y is master" {
+  uses = "actions/bin/filter@d820d56839906464fb7a57d1b4e1741cf5183efa"
+  needs = ["distributed a11y test"]
+  args = "branch master"
+}
+
+ action "distributed a11y docker registry" {
+  uses = "actions/docker/login@8cdf801b322af5f369e00d85e9cf3a7122f49108"
+  needs = ["distributed a11y is master"]
+  secrets = ["DOCKER_USERNAME", "DOCKER_PASSWORD"]
+}
+
+
+ action "distributed a11y build" {
+  uses = "docker://culturehq/actions-yarn:latest"
+  needs = ["distributed a11y docker registry"]
+  args = "build -t cdssnc/a11y-multiple-page-checker-github-action ./a11y-checker"
+}
+
+ action "distributed a11y deploy" {
+  uses = "actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108"
+  needs = ["distributed a11y build"]
+  args = "push cdssnc/a11y-multiple-page-checker-github-action"
+}
