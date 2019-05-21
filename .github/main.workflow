@@ -484,7 +484,7 @@ action "a11y deploy" {
   args = "branch master"
 }
 
- action "a11y docker registry" {
+ action "distributed a11y docker registry" {
   uses = "actions/docker/login@8cdf801b322af5f369e00d85e9cf3a7122f49108"
   needs = ["distributed a11y is master"]
   secrets = ["DOCKER_USERNAME", "DOCKER_PASSWORD"]
