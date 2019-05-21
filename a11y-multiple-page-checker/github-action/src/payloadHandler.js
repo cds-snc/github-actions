@@ -18,6 +18,7 @@ export const handle = async path => {
     // get config file
     const config = await getFile(process.env.GITHUB_WORKSPACE + "/a11y.json");
     const visit = JSON.parse(config).urls;
+    console.log("visit:" + visit);
     
     // iterate through urls in config and send out async requests for each one
     // wait for all to return, and return results
