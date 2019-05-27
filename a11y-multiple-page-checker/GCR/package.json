@@ -1,0 +1,19 @@
+{
+  "name": "axe-distributed-scanner",
+  "version": "1.0.0",
+  "description": "Scan a URL for axe violations",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Bethany Dunfield",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "@babel/runtime": "^7.4.2",
+    "axe-puppeteer": "1.0.0",
+    "esm": "^3.2.22",
+    "minimist": "^1.2.0",
+    "puppeteer": "^1.14.0"
+  }
+}

@@ -1,0 +1,1 @@
+export { requestScan } from "./requestScan";
