@@ -25,6 +25,8 @@ The purpose of this repository is to track all the GitHub actions CDS creates fo
 | seekret                       | Checks if files contain secrets you do not want to expose                                                                                      | `push`              | `cdssnc/seekret-github-action`                       | 59.7 MB |
 | tf-lint                       | Automatically runs [tflint](https://github.com/wata727/tflint) on all the Terraform (`.tf`) in your repository.                                | `push`              | `cdssnc/tf-lint-github-action`                       | 27 MB   |
 | touched                       | Checks if file matching a pattern have been touched as part of the push                                                                        | `push`              | `cdssnc/touched-github-action`                       | 1.88 MB |
+| a11y-checker                  | Basic accessibility scanner for deployments                                                                                                    | `deployment_status` | `cdssnc/a11y-checker`                                 | 515 MB |
+| a11y-multiple-pagechecker     | Accessibility scanner for multiple page deployments                                                                                            | `deployment_status` | `cdssnc/a11y-multiple-page-checker`                   | 319 MB |
 
 ### Questions?
 
