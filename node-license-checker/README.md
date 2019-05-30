@@ -37,6 +37,15 @@ action "license-checker" {
 
 ```
 
+To determine what args value to use:
+Is the modified application going to be used as a web application? If Yes: You can accept any OSI approved licence or FSF free software licence except strong reciprocal licences.
+This arg contains the most common permissive and reciprocal licenses to check for:
+` args = "--onlyAllow 'Apache; BSD; ISC; MIT; X11; EPL; EUPL; GPL; LGPL; AGPL; MPL; OSL'" `
+
+Is the modified application going to be distributed externally, outside the GC, either the source code or the binary? If Yes: Only use permissive licenses.
+The following arg contains the most common permissive licenses to check for:
+` args = "--onlyAllow 'Apache; BSD; ISC; MIT; X11'" `
+
 The resulting output will look something like this when it fails:
 
 ```
