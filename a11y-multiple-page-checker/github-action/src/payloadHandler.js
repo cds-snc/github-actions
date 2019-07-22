@@ -44,7 +44,7 @@ export const handle = async path => {
       if (data && data.violations && data.violations.length >= 1) {
         console.log("Violations on page: /" + result.page  + ": " + data.violations.length);
         data.violations.forEach(v => {
-          console.log("- " + JSON.stringify(v));
+          console.log(JSON.stringify(v, null, 2) + "\n");
         });
         issues.push(data.violations);
       }
