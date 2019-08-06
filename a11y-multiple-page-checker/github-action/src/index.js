@@ -11,11 +11,5 @@ const path = require("path");
   } else {
     filePath = process.env.GITHUB_EVENT_PATH;
   }
-  if (await handle(filePath)) {
-    console.log("Passed");
-    process.exit(0);
-  } else {
-    console.log("Failed");
-    process.exit(1);
-  }
+  process.exit(await handle(filePath));
 })();
