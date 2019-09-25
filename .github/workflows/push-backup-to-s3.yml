@@ -1,4 +1,7 @@
-on: push
+on:
+  push:
+    branches:    
+      - master
 name: Backup to S3
 jobs:
   branchIsMaster:
@@ -6,10 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: Branch is master
-      uses: actions/bin/filter@d820d56839906464fb7a57d1b4e1741cf5183efa
-      with:
-        args: branch master
     - name: Uploads your workspace to S3
       uses: ./diefenbunker
       env:

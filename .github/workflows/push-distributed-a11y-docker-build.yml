@@ -1,4 +1,7 @@
-on: push
+on:
+  push:
+    branches:    
+      - master
 name: ' distributed a11y docker build'
 jobs:
   distributedA11yInstall:
@@ -16,10 +19,6 @@ jobs:
       with:
         entrypoint: sh
         args: -c "cd a11y-multiple-page-checker && npm test"
-    - name: distributed a11y is master
-      uses: actions/bin/filter@d820d56839906464fb7a57d1b4e1741cf5183efa
-      with:
-        args: branch master
     - name: distributed a11y docker registry
       uses: actions/docker/login@8cdf801b322af5f369e00d85e9cf3a7122f49108
       env:

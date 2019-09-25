@@ -1,4 +1,7 @@
-on: push
+on:
+  push:
+    branches:    
+      - master
 name: google-analytics-anonymize-ip docker build
 jobs:
   google-analytics-anonymize-ipIsMaster:
@@ -6,10 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: google-analytics-anonymize-ip is master
-      uses: actions/bin/filter@3c98a2679187369a2116d4f311568596d3725740
-      with:
-        args: branch master
     - name: google-analytics-anonymize-ip docker registry
       uses: actions/docker/login@8cdf801b322af5f369e00d85e9cf3a7122f49108
       env:

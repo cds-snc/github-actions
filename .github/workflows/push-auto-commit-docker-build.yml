@@ -1,4 +1,7 @@
-on: push
+on:
+  push:
+    branches:    
+      - master
 name: auto-commit docker build
 jobs:
   auto-commitIsMaster:
@@ -6,10 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: auto-commit is master
-      uses: actions/bin/filter@3c98a2679187369a2116d4f311568596d3725740
-      with:
-        args: branch master
     - name: auto-commit docker registry
       uses: actions/docker/login@8cdf801b322af5f369e00d85e9cf3a7122f49108
       env:
