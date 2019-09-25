@@ -1,0 +1,29 @@
+on: push
+name: touched docker build
+jobs:
+  touchedIsMaster:
+    name: touched is master
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: touched is master
+      uses: actions/bin/filter@3c98a2679187369a2116d4f311568596d3725740
+      with:
+        args: branch master
+    - name: touched docker registry
+      uses: actions/docker/login@8cdf801b322af5f369e00d85e9cf3a7122f49108
+      env:
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+    - name: touched action
+      uses: docker://cdssnc/touched-github-action:latest
+      with:
+        args: touched/**
+    - name: build touched
+      uses: actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108
+      with:
+        args: build -t cdssnc/touched-github-action ./touched
+    - name: push touched
+      uses: actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108
+      with:
+        args: push cdssnc/touched-github-action

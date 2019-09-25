@@ -1,0 +1,29 @@
+on: push
+name: auto-commit docker build
+jobs:
+  auto-commitIsMaster:
+    name: auto-commit is master
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: auto-commit is master
+      uses: actions/bin/filter@3c98a2679187369a2116d4f311568596d3725740
+      with:
+        args: branch master
+    - name: auto-commit docker registry
+      uses: actions/docker/login@8cdf801b322af5f369e00d85e9cf3a7122f49108
+      env:
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+    - name: auto-commit action
+      uses: docker://cdssnc/touched-github-action:latest
+      with:
+        args: auto-commit/**
+    - name: build auto-commit
+      uses: actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108
+      with:
+        args: build -t cdssnc/auto-commit-github-action ./auto-commit
+    - name: push auto-commit
+      uses: actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108
+      with:
+        args: push cdssnc/auto-commit-github-action

@@ -1,0 +1,18 @@
+on: push
+name: Backup to S3
+jobs:
+  branchIsMaster:
+    name: Branch is master
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Branch is master
+      uses: actions/bin/filter@d820d56839906464fb7a57d1b4e1741cf5183efa
+      with:
+        args: branch master
+    - name: Uploads your workspace to S3
+      uses: ./diefenbunker
+      env:
+        AWS_KEY: ${{ secrets.AWS_KEY }}
+        AWS_SECRET: ${{ secrets.AWS_SECRET }}
+        S3_DESTINATION: s3://cds-github/diefenbunker/

@@ -1,0 +1,29 @@
+on: push
+name: elmo-fire docker build
+jobs:
+  elmo-fireIsMaster:
+    name: elmo-fire is master
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: elmo-fire is master
+      uses: actions/bin/filter@3c98a2679187369a2116d4f311568596d3725740
+      with:
+        args: branch master
+    - name: elmo-fire docker registry
+      uses: actions/docker/login@8cdf801b322af5f369e00d85e9cf3a7122f49108
+      env:
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+    - name: elmo-fire action
+      uses: docker://cdssnc/touched-github-action:latest
+      with:
+        args: elmo-fire/**
+    - name: build elmo-fire
+      uses: actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108
+      with:
+        args: build -t cdssnc/elmo-fire-github-action ./elmo-fire
+    - name: push elmo-fire
+      uses: actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108
+      with:
+        args: push cdssnc/elmo-fire-github-action
