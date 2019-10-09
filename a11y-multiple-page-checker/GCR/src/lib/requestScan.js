@@ -19,8 +19,8 @@ export const requestScan = async (url, useGlobalPuppeteer = false) => {
 
     const results = await new AxePuppeteer(page).analyze();
 
-    //await page.close();
-    //await browser.close();
+    await page.close();
+    await browser.close();
 
     if (results.violations.length > 0) {
       //console.log("Failure: " + results.violations.length + " violations:");
