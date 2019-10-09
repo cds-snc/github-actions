@@ -1,0 +1,28 @@
+on:
+  push:
+    branches:    
+      - master
+name: seekret docker build
+jobs:
+  seekretIsMaster:
+    name: seekret is master
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: seekret docker registry
+      uses: actions/docker/login@8cdf801b322af5f369e00d85e9cf3a7122f49108
+      env:
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+    - name: seekret action
+      uses: docker://cdssnc/touched-github-action:latest
+      with:
+        args: seekret/**
+    - name: build seekret
+      uses: actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108
+      with:
+        args: build -t cdssnc/seekret-github-action ./seekret
+    - name: push seekret
+      uses: actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108
+      with:
+        args: push cdssnc/seekret-github-action

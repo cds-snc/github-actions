@@ -1,0 +1,13 @@
+on:
+  push:
+    branches:    
+      - master
+name: Lint dockerfiles
+jobs:
+  lintDockerFiles:
+    name: Lint docker files
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Lint docker files
+      uses: docker://cdssnc/docker-lint

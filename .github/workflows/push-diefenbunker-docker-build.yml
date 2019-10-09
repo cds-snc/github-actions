@@ -1,0 +1,28 @@
+on:
+  push:
+    branches:    
+      - master
+name: diefenbunker docker build
+jobs:
+  diefenbunkerIsMaster:
+    name: diefenbunker is master
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: diefenbunker docker registry
+      uses: actions/docker/login@8cdf801b322af5f369e00d85e9cf3a7122f49108
+      env:
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+    - name: diefenbunker action
+      uses: docker://cdssnc/touched-github-action:latest
+      with:
+        args: diefenbunker/**
+    - name: build diefenbunker
+      uses: actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108
+      with:
+        args: build -t cdssnc/diefenbunker-github-action ./diefenbunker
+    - name: push diefenbunker
+      uses: actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108
+      with:
+        args: push cdssnc/diefenbunker-github-action

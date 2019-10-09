@@ -1,0 +1,28 @@
+on:
+  push:
+    branches:    
+      - master
+name: google-analytics-anonymize-ip docker build
+jobs:
+  google-analytics-anonymize-ipIsMaster:
+    name: google-analytics-anonymize-ip is master
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: google-analytics-anonymize-ip docker registry
+      uses: actions/docker/login@8cdf801b322af5f369e00d85e9cf3a7122f49108
+      env:
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+    - name: google-analytics-anonymize-ip action
+      uses: docker://cdssnc/touched-github-action:latest
+      with:
+        args: google-analytics-anonymize-ip/**
+    - name: build google-analytics-anonymize-ip
+      uses: actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108
+      with:
+        args: build -t cdssnc/google-analytics-anonymize-ip-github-action ./google-analytics-anonymize-ip
+    - name: push google-analytics-anonymize-ip
+      uses: actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108
+      with:
+        args: push cdssnc/google-analytics-anonymize-ip-github-action

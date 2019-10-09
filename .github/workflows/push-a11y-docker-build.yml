@@ -1,0 +1,34 @@
+on:
+  push:
+    branches:    
+      - master
+name: a11y docker build
+jobs:
+  a11yInstall:
+    name: a11y install
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: a11y install
+      uses: actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680
+      with:
+        entrypoint: sh
+        args: -c "cd a11y-checker && npm install"
+    - name: a11y test
+      uses: docker://buildkite/puppeteer:v1.11.0
+      with:
+        entrypoint: sh
+        args: -c "cd a11y-checker && npm test"
+    - name: a11y docker registry
+      uses: actions/docker/login@8cdf801b322af5f369e00d85e9cf3a7122f49108
+      env:
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+    - name: a11y build
+      uses: docker://culturehq/actions-yarn:latest
+      with:
+        args: build -t cdssnc/a11y-checker-github-action ./a11y-checker
+    - name: a11y deploy
+      uses: actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108
+      with:
+        args: push cdssnc/a11y-checker-github-action
