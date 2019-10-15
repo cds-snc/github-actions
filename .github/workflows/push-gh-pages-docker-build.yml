@@ -10,19 +10,15 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: gh-pages docker registry
-      uses: actions/docker/login@8cdf801b322af5f369e00d85e9cf3a7122f49108
       env:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD docker.io/cdssnc/gh-pages-github-action
     - name: gh-pages action
       uses: docker://cdssnc/touched-github-action:latest
       with:
         args: gh-pages/**
     - name: build gh-pages
-      uses: actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108
-      with:
-        args: build -t cdssnc/gh-pages-github-action ./gh-pages
+      run: docker build -t cdssnc/gh-pages-github-action ./gh-pages
     - name: push gh-pages
-      uses: actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108
-      with:
-        args: push cdssnc/gh-pages-github-action
+      run: docker push cdssnc/gh-pages-github-action
