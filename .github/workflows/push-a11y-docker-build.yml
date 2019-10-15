@@ -29,4 +29,4 @@ jobs:
       with:
         args: build -t cdssnc/a11y-checker-github-action ./a11y-checker
     - name: a11y deploy
-      run: docker push docker.io/cdssnc/a11y-checker
+      run: docker push cdssnc/a11y-checker
