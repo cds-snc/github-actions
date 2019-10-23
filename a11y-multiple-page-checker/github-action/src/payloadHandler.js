@@ -47,13 +47,25 @@ export const handle = async path => {
     results.map(result => {
       let data = result.data;
       if (data && data.violations && data.violations.length >= 1) {
-        console.log(
-          "Violations on page: /" + result.page + ": " + data.violations.length
-        );
+        console.log("\n/" + result.page + ": " + data.violations.length);
         data.violations.forEach(v => {
-          console.log("- " + JSON.stringify(v));
+          const json = JSON.stringify(v.nodes, null, 2);
+          let html;
+          try {
+            html = /"html": "(.*)",\n/.exec(json)[1];
+          } catch {
+            html = "html unknown";
+          }
+          console.log(`-- ${v.impact}: ${v.help}`);
+          console.log(`   ${v.helpUrl}`);
+          console.log(`   ${html}`);
         });
         issues.push(data.violations);
+      } else if (data.errorMessage) {
+        // response errored on the server side
+        console.log("\n/" + result.page + ": ERROR");
+        console.log(data.error);
+        issues.push(data.error);
       }
     });
 
