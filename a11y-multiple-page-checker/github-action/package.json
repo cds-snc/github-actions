@@ -4,7 +4,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@babel/runtime": "^7.4.2",
+    "@babel/runtime": "^7.7.7",
     "esm": "^3.2.22",
     "minimist": "^1.2.0",
     "es6-promise": "4.2.6",
