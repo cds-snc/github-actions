@@ -6,7 +6,7 @@
   "dependencies": {
     "@babel/runtime": "^7.4.2",
     "esm": "^3.2.22",
-    "minimist": "^1.2.0",
+    "minimist": "^1.2.3",
     "es6-promise": "4.2.6",
     "isomorphic-fetch": "2.2.1"
   },
